@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from './components/HelloWorld.vue'
+import DnsQuery from './components/DnsQuery.vue'
 </script>
 
 <template>
@@ -8,7 +8,7 @@ import HelloWorld from './components/HelloWorld.vue'
     <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
 
     <div class="wrapper">
-      <HelloWorld msg="You did it!" />
+      <DnsQuery/>
 
       <nav>
         <RouterLink to="/">Home</RouterLink>
@@ -17,7 +17,7 @@ import HelloWorld from './components/HelloWorld.vue'
     </div>
   </header>
 
-  <RouterView />
+  <RouterView :key="$route.fullPath"/>
 </template>
 
 <style scoped>
