@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import {ref} from 'vue';
-import {useRouter} from 'vue-router'
+import { ref } from 'vue'
+import { useRouter } from 'vue-router'
 
 const domain = ref('')
 const router = useRouter()
@@ -20,9 +20,7 @@ function queryDns() {
 <template>
   <div class="greetings">
     <h1 class="green">DNS Query</h1>
-    <h3>
-      Enter a domain name to check its DNS records
-    </h3>
+    <h3>Enter a domain name to check its DNS records</h3>
     <input v-model="domain" placeholder="example.com" />
     <button @click="queryDns">Submit</button>
   </div>

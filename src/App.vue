@@ -8,7 +8,7 @@ import DnsQuery from './components/DnsQuery.vue'
     <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
 
     <div class="wrapper">
-      <DnsQuery/>
+      <DnsQuery />
 
       <nav>
         <RouterLink to="/">Home</RouterLink>
@@ -17,7 +17,7 @@ import DnsQuery from './components/DnsQuery.vue'
     </div>
   </header>
 
-  <RouterView :key="$route.fullPath"/>
+  <RouterView :key="$route.fullPath" />
 </template>
 
 <style scoped>

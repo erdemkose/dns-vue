@@ -7,14 +7,13 @@ import TextIcon from './icons/IconText.vue'
 import CanonicalIcon from './icons/IconCanonical.vue'
 
 defineProps<{
-  a: Array<string>,
-  aaaa: Array<string>,
-  mx: Array<{Host: string, Pref: string}>,
-  ns: Array<{Host: string}>,
-  txt: Array<string>,
-  cname: string,
+  a: Array<string>
+  aaaa: Array<string>
+  mx: Array<{ Host: string; Pref: string }>
+  ns: Array<{ Host: string }>
+  txt: Array<string>
+  cname: string
 }>()
-
 </script>
 
 <template>
