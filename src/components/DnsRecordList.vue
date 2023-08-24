@@ -17,31 +17,43 @@ defineProps<{
 </script>
 
 <template>
-  <DnsRecord v-for="ip in a" :key="ip">
+  <DnsRecord v-if="a.length > 0">
     <template #icon>
       <IPIcon />
     </template>
     <template #heading>A (IP v4)</template>
 
-    {{ ip }}
+    <ul>
+      <li v-for="ip in a" :key="ip">
+        {{ ip }}
+      </li>
+    </ul>
   </DnsRecord>
 
-  <DnsRecord v-for="ip in aaaa" :key="ip">
+  <DnsRecord v-if="aaaa.length > 0">
     <template #icon>
       <IPIcon />
     </template>
     <template #heading>AAAA (IP v6)</template>
 
-    {{ ip }}
+    <ul>
+      <li v-for="ip in aaaa" :key="ip">
+        {{ ip }}
+      </li>
+    </ul>
   </DnsRecord>
 
-  <DnsRecord v-for="r in mx" :key="r.Host + r.Pref">
+  <DnsRecord v-if="mx.length > 0">
     <template #icon>
       <EmailIcon />
     </template>
     <template #heading>MX</template>
 
-    {{ r }}
+    <ul>
+      <li v-for="s in mx" :key="s.Host">
+        {{ s.Pref }}: {{ s.Host }}
+      </li>
+    </ul>
   </DnsRecord>
 
   <DnsRecord v-if="ns.length > 0">
