@@ -44,7 +44,7 @@ defineProps<{
     {{ r }}
   </DnsRecord>
 
-  <DnsRecord>
+  <DnsRecord v-if="ns.length > 0">
     <template #icon>
       <ServerIcon />
     </template>
@@ -57,7 +57,7 @@ defineProps<{
     </ul>
   </DnsRecord>
 
-  <DnsRecord>
+  <DnsRecord v-if="txt.length > 0">
     <template #icon>
       <TextIcon />
     </template>
@@ -70,7 +70,7 @@ defineProps<{
     </ul>
   </DnsRecord>
 
-  <DnsRecord>
+  <DnsRecord v-if="cname.length > 0">
     <template #icon>
       <CanonicalIcon />
     </template>
