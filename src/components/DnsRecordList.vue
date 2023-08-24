@@ -44,22 +44,30 @@ defineProps<{
     {{ r }}
   </DnsRecord>
 
-  <DnsRecord v-for="n in ns" :key="n.Host">
+  <DnsRecord>
     <template #icon>
       <ServerIcon />
     </template>
-    <template #heading>Nameserver</template>
+    <template #heading>Name servers</template>
 
-    {{ n.Host }}
+    <ul>
+      <li v-for="n in ns" :key="n.Host">
+        {{ n.Host }}
+      </li>
+    </ul>
   </DnsRecord>
 
-  <DnsRecord v-for="t in txt" :key="t">
+  <DnsRecord>
     <template #icon>
       <TextIcon />
     </template>
     <template #heading>Text records</template>
 
-    {{ t }}
+    <ul>
+      <li v-for="t in txt" :key="t">
+        {{ t }}
+      </li>
+    </ul>
   </DnsRecord>
 
   <DnsRecord>
