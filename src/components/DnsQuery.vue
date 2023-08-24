@@ -21,8 +21,11 @@ function queryDns() {
   <div class="greetings">
     <h1 class="green">DNS Query</h1>
     <h3>Enter a domain name to check its DNS records</h3>
-    <input v-model="domain" placeholder="example.com" />
-    <button @click="queryDns">Submit</button>
+
+    <form @submit.prevent="queryDns">
+      <input v-model="domain" placeholder="example.com" />
+      <button @click="queryDns">Submit</button>
+    </form>
   </div>
 </template>
 
