@@ -18,8 +18,7 @@ async function fetchDnsRecords(resolver: String, domain: String) {
   try {
     isLoading.value = true
 
-    const requestURL = new URL(`http://localhost:80/api/v1/resolvers/${resolver}/domains/${domain}`)
-    const response = await fetch(requestURL)
+    const response = await fetch(`/api/v1/resolvers/${resolver}/domains/${domain}`)
     queryResponse.value = await response.json()
   } catch (e) {
     console.error('DNS query failed: ', e)
