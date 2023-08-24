@@ -17,7 +17,7 @@ defineProps<{
 </script>
 
 <template>
-  <DnsRecord v-if="a.length > 0">
+  <DnsRecord v-if="a && a.length > 0">
     <template #icon>
       <IPIcon />
     </template>
@@ -30,7 +30,7 @@ defineProps<{
     </ul>
   </DnsRecord>
 
-  <DnsRecord v-if="aaaa.length > 0">
+  <DnsRecord v-if="aaaa && aaaa.length > 0">
     <template #icon>
       <IPIcon />
     </template>
@@ -43,7 +43,7 @@ defineProps<{
     </ul>
   </DnsRecord>
 
-  <DnsRecord v-if="mx.length > 0">
+  <DnsRecord v-if="mx && mx.length > 0">
     <template #icon>
       <EmailIcon />
     </template>
@@ -56,7 +56,7 @@ defineProps<{
     </ul>
   </DnsRecord>
 
-  <DnsRecord v-if="ns.length > 0">
+  <DnsRecord v-if="ns && ns.length > 0">
     <template #icon>
       <ServerIcon />
     </template>
@@ -69,7 +69,7 @@ defineProps<{
     </ul>
   </DnsRecord>
 
-  <DnsRecord v-if="txt.length > 0">
+  <DnsRecord v-if="txt && txt.length > 0">
     <template #icon>
       <TextIcon />
     </template>
@@ -82,7 +82,7 @@ defineProps<{
     </ul>
   </DnsRecord>
 
-  <DnsRecord v-if="cname.length > 0">
+  <DnsRecord v-if="cname && cname.length > 0">
     <template #icon>
       <CanonicalIcon />
     </template>
