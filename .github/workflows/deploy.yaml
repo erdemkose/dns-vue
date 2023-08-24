@@ -1,0 +1,44 @@
+name: Deployment
+
+on: workflow_dispatch
+
+jobs:
+  deploy:
+    runs-on: ubuntu-22.04
+    environment: production
+    concurrency: production
+    steps:
+      - name: Branch name
+        id: branch_name
+        run: echo "SOURCE_TAG=${GITHUB_REF#refs/tags/}" >> "$GITHUB_ENV"
+
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Setup node environment
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20.x'
+
+      - name: Build
+        run: |
+          npm ci
+          npm run build
+
+      - name: Deploy
+        env:
+          DEPLOYMENT_HOST: ${{ secrets.DEPLOYMENT_HOST }}
+          DEPLOYMENT_USER: ${{ secrets.DEPLOYMENT_USER }}
+          DEPLOYMENT_SSH_PRIVATE_KEY: ${{ secrets.DEPLOYMENT_SSH_PRIVATE_KEY }}
+          DEPLOYMENT_SSH_KNOWN_HOSTS: ${{ secrets.DEPLOYMENT_SSH_KNOWN_HOSTS }}
+          RELEASES: /var/www/dns-vue/releases
+        run: |
+          mkdir -p ~/.ssh
+          echo "${DEPLOYMENT_SSH_PRIVATE_KEY}" > ~/.ssh/id_ed25519
+          chmod 600 ~/.ssh/id_ed25519
+          echo "${DEPLOYMENT_SSH_KNOWN_HOSTS}" > ~/.ssh/known_hosts
+          rsync -r dist ${DEPLOYMENT_USER}@${DEPLOYMENT_HOST}:${RELEASES}/${SOURCE_TAG}
+          ssh ${DEPLOYMENT_USER}@${DEPLOYMENT_HOST} " \
+            cd /var/www/dns-vue && \
+            ln -sfn releases/${SOURCE_TAG} current && \
+            chown -R www-data:www-data releases/${SOURCE_TAG} current"
