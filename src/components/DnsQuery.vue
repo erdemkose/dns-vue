@@ -1,9 +1,14 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import { useRouter } from 'vue-router'
+import { useRoute, useRouter } from 'vue-router'
 
 const domain = ref('')
+const route = useRoute()
 const router = useRouter()
+
+if (route.name === 'query') {
+  domain.value = route.params.domain.toString()
+}
 
 function queryDns() {
   // validateDomain()
