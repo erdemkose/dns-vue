@@ -22,4 +22,20 @@ const router = createRouter({
   ]
 })
 
+router.beforeEach((to, from, next) => {
+  switch (to.name) {
+    case 'query':
+      document.title = 'DNS Checker - ' + to.params.domain.toString();
+      break;
+    case 'about':
+      document.title = 'DNS Checker - About';
+      break;
+    default:
+      document.title = 'DNS Checker - Home';
+      break;
+  }
+
+  next();
+});
+
 export default router
