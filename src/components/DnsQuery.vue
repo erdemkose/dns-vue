@@ -23,38 +23,64 @@ function queryDns() {
 </script>
 
 <template>
-  <div class="greetings">
+  <div class="container-col gapy-1 p-1">
     <h1 class="green">DNS Query</h1>
-    <h3>Enter a domain name to check its DNS records</h3>
-
-    <form @submit.prevent="queryDns">
-      <input v-model="domain" placeholder="example.com" />
-      <button @click="queryDns">Submit</button>
+    <form @submit.prevent="queryDns" class="container-col gapy-05">
+      <div class="input">
+        <label for="domain">Enter a domain name to check its DNS records</label>
+        <input v-model="domain" placeholder="example.com" type="text" />
+      </div>
+      <button @click="queryDns" class="button button-neutral gapx-1">
+        <label>Check</label>
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+            <path d="M20 12C20 16.4183 16.4183 20 12 20C7.58172 20 4 16.4183 4 12C4 7.58172 7.58172 4 12 4C16.4183 4 20 7.58172 20 12Z" stroke-width="1.5"/>
+            <path opacity="0.5" d="M17.8486 6.19085C19.8605 5.81929 21.3391 5.98001 21.8291 6.76327C22.8403 8.37947 19.2594 12.0342 13.8309 14.9264C8.40242 17.8185 3.18203 18.8529 2.17085 17.2367C1.63758 16.3844 2.38148 14.9651 4 13.3897" stroke-width="1.5"/>
+        </svg>
+      </button>
     </form>
   </div>
 </template>
 
-<style scoped>
-h1 {
-  font-weight: 500;
-  font-size: 2.6rem;
-  position: relative;
-  top: -10px;
+<style>
+
+
+.input {
+    display: flex;
+    flex-direction: column;
+    position: relative;
 }
 
-h3 {
-  font-size: 1.2rem;
+.input input[type="text"],
+.input input[type="password"],
+.input input[type="email"],
+.input input[type="number"],
+.input textarea, select {
+    width: 100%;
+    border: 1px solid var(--neutral);
+    background-color: var(--light-neutral);
+    padding: 10px;
+    border-radius: var(--radius);
+    font-size: 16px;
+    transition: border-color 0.3s ease, background-color 0.3s ease;
 }
 
-.greetings h1,
-.greetings h3 {
-  text-align: center;
+.input input[type="text"]:focus,
+.input input[type="password"]:focus,
+.input input[type="email"]:focus,
+.input input[type="number"]:focus,
+.input textarea:focus {
+    border-color: var(--primary);
+    background-color: var(--white);
+    outline: none;
 }
 
-@media (min-width: 1024px) {
-  .greetings h1,
-  .greetings h3 {
-    text-align: left;
-  }
+.input label {
+    margin-bottom: 5px;
+    color: var(--tertiary);
+    transition: color 0.3s ease;
+}
+
+.input:focus-within label {
+    color: var(--primary);
 }
 </style>

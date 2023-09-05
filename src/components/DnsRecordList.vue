@@ -17,7 +17,8 @@ defineProps<{
 </script>
 
 <template>
-  <DnsRecord v-if="a && a.length > 0">
+  <div class="container-col p-1">
+    <DnsRecord v-if="a && a.length > 0">
     <template #icon>
       <IPIcon />
     </template>
@@ -90,4 +91,5 @@ defineProps<{
 
     {{ cname }}
   </DnsRecord>
+  </div>
 </template>

@@ -13,11 +13,6 @@ const router = createRouter({
       path: '/resolvers/:resolver/domains/:domain',
       name: 'query',
       component: () => import('../views/DnsRecordListView.vue')
-    },
-    {
-      path: '/about',
-      name: 'about',
-      component: () => import('../views/AboutView.vue')
     }
   ]
 })
