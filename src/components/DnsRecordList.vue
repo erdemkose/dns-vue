@@ -12,11 +12,11 @@ defineProps<{
 </script>
 
 <template>
-  <div class="container-col p-1">
+  <div class="container-col p-1 gapy-1">
     <DnsRecord v-if="a && a.length > 0">
     <template #heading>A (IP v4)</template>
 
-    <ul class="left-text">
+    <ul class="">
       <li v-for="ip in a" :key="ip">
         {{ ip }}
       </li>
@@ -26,7 +26,7 @@ defineProps<{
   <DnsRecord v-if="aaaa && aaaa.length > 0">
     <template #heading>AAAA (IP v6)</template>
 
-    <ul class="left-text">
+    <ul>
       <li v-for="ip in aaaa" :key="ip">
         {{ ip }}
       </li>
@@ -36,7 +36,7 @@ defineProps<{
   <DnsRecord v-if="mx && mx.length > 0">
     <template #heading>MX</template>
 
-    <ul class="left-text">
+    <ul>
       <li v-for="s in mx" :key="s.Host">
         {{ s.Pref }}: {{ s.Host }}
       </li>
@@ -46,7 +46,7 @@ defineProps<{
   <DnsRecord v-if="ns && ns.length > 0">
     <template #heading>Name servers</template>
 
-    <ul class="left-text">
+    <ul>
       <li v-for="n in ns" :key="n.Host">
         {{ n.Host }}
       </li>
@@ -56,7 +56,7 @@ defineProps<{
   <DnsRecord v-if="txt && txt.length > 0">
     <template #heading>Text records</template>
 
-    <ul class="left-text">
+    <ul>
       <li v-for="t in txt" :key="t">
         {{ t }}
       </li>

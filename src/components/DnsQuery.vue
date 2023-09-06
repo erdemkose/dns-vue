@@ -28,7 +28,7 @@ function queryDns() {
     <form @submit.prevent="queryDns" class="container-col gapy-05">
       <div class="input">
         <label for="domain">Enter a domain name to check its DNS records</label>
-        <input v-model="domain" placeholder="example.com" type="text" />
+        <input v-model="domain" placeholder="example.com" class="center-text" type="text" />
       </div>
       <button @click="queryDns" class="button button-neutral gapx-1">
         <label>Check</label>
