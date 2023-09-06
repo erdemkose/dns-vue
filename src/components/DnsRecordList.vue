@@ -1,10 +1,5 @@
 <script setup lang="ts">
 import DnsRecord from './DnsRecord.vue'
-import IPIcon from './icons/IconIP.vue'
-import EmailIcon from './icons/IconEmail.vue'
-import ServerIcon from './icons/IconServer.vue'
-import TextIcon from './icons/IconText.vue'
-import CanonicalIcon from './icons/IconCanonical.vue'
 
 defineProps<{
   a: Array<string>
@@ -19,12 +14,9 @@ defineProps<{
 <template>
   <div class="container-col p-1">
     <DnsRecord v-if="a && a.length > 0">
-    <template #icon>
-      <IPIcon />
-    </template>
     <template #heading>A (IP v4)</template>
 
-    <ul>
+    <ul class="left-text">
       <li v-for="ip in a" :key="ip">
         {{ ip }}
       </li>
@@ -32,12 +24,9 @@ defineProps<{
   </DnsRecord>
 
   <DnsRecord v-if="aaaa && aaaa.length > 0">
-    <template #icon>
-      <IPIcon />
-    </template>
     <template #heading>AAAA (IP v6)</template>
 
-    <ul>
+    <ul class="left-text">
       <li v-for="ip in aaaa" :key="ip">
         {{ ip }}
       </li>
@@ -45,12 +34,9 @@ defineProps<{
   </DnsRecord>
 
   <DnsRecord v-if="mx && mx.length > 0">
-    <template #icon>
-      <EmailIcon />
-    </template>
     <template #heading>MX</template>
 
-    <ul>
+    <ul class="left-text">
       <li v-for="s in mx" :key="s.Host">
         {{ s.Pref }}: {{ s.Host }}
       </li>
@@ -58,12 +44,9 @@ defineProps<{
   </DnsRecord>
 
   <DnsRecord v-if="ns && ns.length > 0">
-    <template #icon>
-      <ServerIcon />
-    </template>
     <template #heading>Name servers</template>
 
-    <ul>
+    <ul class="left-text">
       <li v-for="n in ns" :key="n.Host">
         {{ n.Host }}
       </li>
@@ -71,12 +54,9 @@ defineProps<{
   </DnsRecord>
 
   <DnsRecord v-if="txt && txt.length > 0">
-    <template #icon>
-      <TextIcon />
-    </template>
     <template #heading>Text records</template>
 
-    <ul>
+    <ul class="left-text">
       <li v-for="t in txt" :key="t">
         {{ t }}
       </li>
@@ -84,9 +64,6 @@ defineProps<{
   </DnsRecord>
 
   <DnsRecord v-if="cname && cname.length > 0">
-    <template #icon>
-      <CanonicalIcon />
-    </template>
     <template #heading>Canonical Name (CNAME)</template>
 
     {{ cname }}

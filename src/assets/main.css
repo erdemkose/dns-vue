@@ -4,6 +4,10 @@
   text-align: center;
 }
 
+.left-text {
+  text-align: left;
+}
+
 /* create a footer element that sticks to the bottom */
 .footer {
   position: fixed;
