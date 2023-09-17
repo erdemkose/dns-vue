@@ -1,11 +1,9 @@
 <script setup lang="ts">
-import TheWelcome from '../components/TheWelcome.vue'
-import Author from '../components/Author.vue'
+import DnsQuery from "@/components/DnsQuery.vue";
 </script>
 
 <template>
-  <main>
-    <TheWelcome />
+  <main class="flex min-h-screen items-center justify-center">
+    <DnsQuery />
   </main>
-  <Author />
 </template>

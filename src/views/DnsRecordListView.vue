@@ -33,16 +33,25 @@ fetchDnsRecords(resolver, domain)
 </script>
 
 <template>
-  <main>
-    <h2>DNS Records from the selected source</h2>
-    <DnsRecordList
-      v-if="!isLoading"
-      :a="queryResponse.a"
-      :aaaa="queryResponse.aaaa"
-      :mx="queryResponse.mx"
-      :ns="queryResponse.ns"
-      :txt="queryResponse.txt"
-      :cname="queryResponse.cname"
-    />
+  <main class="min-h-screen p-6 pb-12">
+    <div class="p-3">
+      <RouterLink to="/" class="rounded bg-gray-100 p-3">&lt; Go back</RouterLink>
+    </div>
+
+    <h1 class="text-center text-lg font-semibold">
+      DNS records of <span class="font-mono font-bold">{{ domain}}</span>
+    </h1>
+
+    <div class="flex flex-wrap justify-center">
+      <DnsRecordList
+          v-if="!isLoading"
+          :a="queryResponse.a"
+          :aaaa="queryResponse.aaaa"
+          :mx="queryResponse.mx"
+          :ns="queryResponse.ns"
+          :txt="queryResponse.txt"
+          :cname="queryResponse.cname"
+      />
+    </div>
   </main>
 </template>
