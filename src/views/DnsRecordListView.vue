@@ -18,7 +18,7 @@ async function fetchDnsRecords(resolver: String, domain: String) {
   try {
     isLoading.value = true
 
-    const response = await fetch(`/api/v1/resolvers/${resolver}/domains/${domain}`)
+    const response = await fetch(`https://dns-go-dev-tmjj.1.ie-1.fl0.io/v1/resolvers/${resolver}/domains/${domain}`)
     queryResponse.value = await response.json()
   } catch (e) {
     console.error('DNS query failed: ', e)
