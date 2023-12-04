@@ -9,3 +9,13 @@ updates:
     directory: "/" # Location of package manifests
     schedule:
       interval: "weekly"
+    assignees:
+      - "erdemkose"
+    groups:
+      major-changes:
+        update-types:
+        - "major"
+      minor-changes:
+        update-types:
+        - "minor"
+        - "patch"
