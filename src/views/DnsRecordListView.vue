@@ -41,6 +41,9 @@ fetchDnsRecords(resolver, domain)
     <h1 class="text-center text-lg font-semibold">
       DNS records of <span class="font-mono font-bold">{{ domain}}</span>
     </h1>
+    <h2 class="text-center font-semibold">
+      Records are from: <span class="font-mono font-bold">{{ resolver }}</span>
+    </h2>
 
     <div class="flex flex-wrap justify-center">
       <DnsRecordList
